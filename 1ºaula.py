@@ -1,7 +1,7 @@
 # Meu primeiro programa
 from random import randint # Importa a função de gerar números aleatórios
 
-print("Olá 1info2!")
+print("Jogo dos Dados!")
 
 dado1 = randint(1, 6)
 print("Dado 1: ", dado1)
