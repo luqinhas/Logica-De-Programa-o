@@ -1,0 +1,23 @@
+data = ("03/01/2004")
+
+dataextensive = data.split("/")
+
+print(dataextensive)
+dia = dataextensive[0]
+mes = dataextensive[1]
+ano = dataextensive[2]
+print (dia, mes, ano)
+
+mes1 = {
+  1:'Janeiro',
+  2:'Fevereiro',
+  3:'Março',
+  4:'Abril',
+  5:'Maio',
+  6:'Junho',
+}
+print(mes1)
+
+print(dia, 'de', mes, 'de', ano )
+
+print(int(mes(mes1)))
