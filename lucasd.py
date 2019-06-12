@@ -39,57 +39,63 @@ def preco_com_desconto(preco_original, percentual_desconto):
 def dias_para_segundos(dias, horas, minutos, segundos):
     """ Recebe uma data em dias com horas, minutos e segundos, e retorna
     a data em segundos"""
-    horas = 60 * 60 
-    minutos = 1 * 60 
-    segundostotal= dias + horas + minutos + segundos
+    segundostotal = dias * 24 * 3600 + horas * 60 * 60 + minutos * 60 + segundos
     return segundostotal
 
 
 def celsius_para_fahrenheit(c):
     """ Recebe uma temperatura em celsius, e retorna a temperatura
     em fahrenheit"""
+    F = (9 * c / 5) + 32
+    return F
 
 
 def fahrenheit_para_celsius(f):
     """ Recebe uma temperatura em fahrenheit, e retorna a temperatura
-     em celsius"""
+    em celsius"""
+
+    c = (f-32)/1.8
+
+    return round(c,2)
 
 
 def preco_aluguel_carro(dias, km):
-    """ Recebe uma q, 0), True)
-    test(media_final_aprovado_reprovado(0, 0, 10, 10), False)
-    test(media_final_aprovado_reprovado(10, 10, 10, 10), True)
-    test(media_final_aprovado_reprovado(0, 0, 5, 0), False)
-    test(media_final_aprovado_reprovado(8.0, 7.0, 9.0, 8.0), True)
-
-    print('Salário líquido:')
-    test(salario(10, 80), 608)
-    test(salario(100, 30), 2280)
-    test(salario(2.5, 300), 570)
-    test(salario(5, 120), 456)
-
-    print('Latas de tinta:')
-    test(tinta(10), 1)uantidade de dias que o carro foi alugado e a
+    """ Recebe uma quantidade de dias que o carro foi alugado e a
     quantidade de quilômetros rodados, e retorna o valor a ser pago.
-    1 dia: 60 reais mais R$ 0,15 por km rodado."""
+    1 dia: 60 reais mais R$ 0,15 por km rodado."""      
+    valortotal = km * 0.15 + dias * 60 
 
+    return valortotal
 
 def dias_perdidos_por_fumar(cigarros_fumados_por_dia, anos_fumando):
     """ Recebe uma quantidade de cigarros fumados por dia e a quantidade
-     de anos que fuma, e retorna o total de dias perdidos, sabendo que
-     cada cigarro reduz a vida em 10 minutos."""
-
+ de anos que fuma, e retorna o total de dias perdidos, sabendo que
+ cada cigarro reduz a vida em 10 minutos."""
+    dias = anos_fumando * 365
+    minutos = cigarros_fumados_por_dia * 10  
+    s = minutos/1440
+    d = s * dias
+    return round(d,2)
 
 def dois_elevado_a_um_milhao():
     """ Calcula dois elevado a um milhão, e retorna a quantidade de
-    algarismos"""
-
+    algarismos"""   
+    a = 2 ** 1000000
+    a = str(2 ** 1000000)
+    return len(a)
 
 def media_final_aprovado_reprovado(p1, p2, ep1, ep2):
     """ Recebe as notas das 2 provas e 2 exercícios de programação e retorna
     se o aluno foi ou não aprovado. As provas têm peso 7 e os exercícios
     têm peso 3. Cada parcial tem peso igual."""
-
+    n1 = p1 * 0.70  *p2 * 0.70
+    n2 = ep1 * 0.30 * ep2 * 0.30
+    mediafinal = (n1 + n2) /4
+    if mediafinal>7:
+        return True
+    else:
+        return False
+        
 
 def salario(valor_hora, horas_mensais):
     """ Recebe quanto ganha por hora e quantas horas trabalho ao mês,
@@ -99,6 +105,10 @@ def salario(valor_hora, horas_mensais):
     - INSS é 8% do salário bruto
     - IR é 11% do salário bruto
     - Sindicato é 5% do salário bruto"""
+
+    
+
+
 
 
 def tinta(metros_pintar):
