@@ -97,7 +97,12 @@ def salario(valor_hora, horas_mensais):
     - INSS é 8% do salário bruto
     - IR é 11% do salário bruto
     - Sindicato é 5% do salário bruto"""
-
+    total = valor_hora * horas_mensais
+    INSS = (8/100) * total
+    IR = (11/100) * total
+    SIN = (5/100) * total
+    salarioliquido = total - INSS - IR - SIN
+    return round(salarioliquido)
 
 def tinta(metros_pintar):
     """ Recebe quantos metros quadrados precisa pintar,
@@ -125,23 +130,40 @@ def decompor_numero(numero):
     centenas, dezenas e unidades do mesmo.
     Obs.: não utilize operações com strings
     '''
-    cen = (numero * 1000) / 100000
-    dez = numero / 100
-    uni = dez / 10000
-    dd = (cen, dez, uni)
-    dd = int
-    return round(dd,)
+    cen = numero // 100
+    dez = (numero - (cen * 100)) // 10
+    uni =  numero - (cen * 100) - (dez *10)
+    return round(cen,2), round(dez,2), round(uni,2)
 
 def palindrome(texto):
     """Faça uma função que verifique se uma textro passado é palíndrome,
     isto é, se é igual quando lido de trás pra frente."""
 
+    texto = texto.lower()
+    texto = texto.split("!@#$%*")
+    if texto[::-1] == texto:
+        return True
+    else:
+        return False
+
 
 def troca_caixa(texto):
     """Vogais ficam em caixa alta (maiúsculas)
     Consoantes ficam em caixa baixa (minúsculas)"""
-    aaa = texto.upper()
-    return aaa
+    texto = texto.lower()
+
+    texto = texto.replace('a','A')
+
+    texto = texto.replace('e','E')
+
+    texto = texto.replace('i','I')
+
+    texto = texto.replace('o','O')
+
+    texto = texto.replace('u','U')
+
+    return texto
+
 
 def imprime_mes_por_extenso(data):
     """Faça um programa que solicite a data de nascimento (dd/mm/aaaa)
@@ -173,11 +195,19 @@ def imprime_mes_por_extenso(data):
 def encontra_caracter(texto, caracter_procurado):
     """Receba um texto e retorne a localização da primeira vez que
     aparece o caracter especificado"""
+
     prob = texto.find(caracter_procurado)
     return prob
 
 def é_azarado(numero):
     """O último dígito não pode ser igual ao primeiro, porque isso dá azar."""
+
+    numero = str(numero)
+
+    if numero[-1] == numero[0]:
+        return True
+    else:
+        return False
 
 
 def ondernamento_contrario(lista):
