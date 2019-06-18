@@ -212,28 +212,37 @@ def é_azarado(numero):
 
 def ondernamento_contrario(lista):
     """ Devolve a lista invertida"""
-
+    invertida = lista[::-1]
+    return invertida
 
 def maximo(lista):
     """ Calcule o maior número da 'lista' """
-
+    lista = lista[-1]
+    return lista
 
 def minimo(lista):
     """ Calcule o menor número da 'lista' """
-
+    lista = lista[0]
+    return lista
 
 def maior_menor(lista):
     """ Calcule o maior e o menor numero da 'lista' """
+    x = max(lista)
+    y = min(lista)
+
+    return x, y
 
 
 def media_saltos_lista(saltos):
-    """Receba uma lista com os saltos de um atleta e calcule a média
-    dos seus saltos, sabendo que o melhor e o pior saltos são desconsiderados.
-    """
+    """Receba uma lista com os saltos de um atleta e calcule
+    a média dos seus saltos, sabendo que o melhor e o pior
+    saltos são desconsiderados."""
 
+    return round(sum(saltos) /len(saltos),1)
 
 def contem(lista, item_procurado):
-    """Verifica se uma lista contém um item e devolve um valor booleano."""
+    """Verifica se uma lista contém um item e devolve um
+    valor booleano."""
 
 
 def conta(lista, item_procurado):
@@ -244,12 +253,26 @@ def mes_extenso(mes):
     """Receba um número correspondente ao mês e devolva o nome do mês,
     com 3 letras. Ex.: 1-jan, 2-fev, ..., 12-dez.
     Use uma lista com os nomes dos meses."""
-
+    mesex = {
+        1:"jan",
+        2:"fev",
+        3:"mar",
+        4:"abr",
+        5:"mai",
+        6:"jun",
+        7:"jul",
+        8:"ago",
+        9:"set",
+        10:"out",
+        11:"nov",
+        12:"dez",
+    }
+    return mesex[mes]
 
 def media_temperaturas(temperaturas):
     """Devolva a média das temperaturas.
     """
-
+    return round(sum(temperaturas) / len(temperaturas), 1)
 
 def leet(texto):
     '''
@@ -257,6 +280,22 @@ def leet(texto):
     troca = {'a':'4','e':'3','g':'9','i':'1','s':'5','t':'7','o':'0'}
     '''
 
+    texto = texto.replace('a', '4')
+    texto = texto.replace('e', '3')
+    texto = texto.replace('g', '9')
+    texto = texto.replace('i', '1')
+    texto = texto.replace('s', '5')
+    texto = texto.replace('t', '7')
+    texto = texto.replace('o', '0')
+    texto = texto.replace('A', '4')
+    texto = texto.replace('E', '3')
+    texto = texto.replace('G', '9')
+    texto = texto.replace('I', '1')
+    texto = texto.replace('S', '5')
+    texto = texto.replace('T', '7')
+    texto = texto.replace('O', '0')
+
+    return texto
 
 def apaga(s, n):
     """
@@ -265,7 +304,9 @@ def apaga(s, n):
     apaga('kitten', 1) -> 'ktten'
     apaga('kitten', 4) -> 'kittn'
     """
-
+    print(s[n])
+    s = (s.replace(s[n],''))
+    return s
 
 # Área de testes: só mexa aqui se souber o que está fazendo!
 acertos = 0
