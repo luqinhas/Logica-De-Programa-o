@@ -18,6 +18,4 @@ mes1 = {
 }
 print(mes1)
 
-print(dia, 'de', mes, 'de', ano )
-
-print(int(mes(mes1)))
+print(dia, 'de', mes1[int(mes)], 'de', ano )
